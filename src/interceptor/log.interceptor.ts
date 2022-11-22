@@ -37,7 +37,7 @@ export class LoggingInterceptor implements NestInterceptor {
                 createLogDto['statusCode'] = status;
                 createLogDto['message'] = error;
                 await this.logService.create(createLogDto)
-                throw  new HttpException(err.message, status);
+                throw new HttpException(err.message, status);
             })
         );
     }

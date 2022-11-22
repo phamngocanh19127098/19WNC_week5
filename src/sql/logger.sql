@@ -12,3 +12,12 @@ create table if not exists log (
                                    status_code text,
                                    primary key (id)
 );
+
+create table if not exists user (
+    id int unsigned NOT NULL AUTO_INCREMENT,
+    username text,
+    password varchar(255),
+    refresh_token text,
+    updated_at timestamp,
+    primary key (id)
+);

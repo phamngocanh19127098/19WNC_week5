@@ -24,7 +24,6 @@ export class LogService {
 
     async findAll(getListDto: GetListDto) {
         const { fullTextSearch} = getListDto;
-        console.log(fullTextSearch)
         const query = this.logRepository.createQueryBuilder('log')
         if ( fullTextSearch != null && fullTextSearch != '') {
             query.andWhere(
@@ -68,7 +67,7 @@ export class LogService {
         return `This action removes a #${id} log`;
     }
 
-    @Cron(CronExpression.EVERY_SECOND)
+    // @Cron(CronExpression.EVERY_30_SECONDS, { timeZone : 'Asia/Ho_Chi_Minh'})
     async removeCronJobs(){
         let today = new Date();
         let previousYear = new Date(
@@ -76,7 +75,7 @@ export class LogService {
             today.getMonth(),
             today.getDate(),
         );
-        // this.logger.debug('Called when the current second is 1');
+        this.logger.debug('Called when the current second is 30');
         await this.logRepository.delete({
             requestAt: LessThan(previousYear)
         })

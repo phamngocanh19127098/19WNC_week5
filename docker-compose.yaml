@@ -11,14 +11,14 @@ services:
     volumes:
       -  ../data:/var/lib/mysql
 
-  my_app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    depends_on:
-      - mysql_db
-    ports:
-      - 3000:3000
-    volumes:
-      - .:/app
-      - /app/node_modules
+#  my_app:
+#    build:
+#      context: .
+#      dockerfile: Dockerfile
+#    depends_on:
+#      - mysql_db
+#    ports:
+#      - 3000:3000
+#    volumes:
+#      - .:/app
+#      - /app/node_modules
